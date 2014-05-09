@@ -18,6 +18,10 @@ function populateTable(){
     // jQuery AJAX call for JSON
     $.getJSON('/users/userlist', function(data){
 
+
+        // Stick our user data array into a userlist variable in the global object
+        userListData = data;
+
         // For each item in the JSON, add a table row and cell to the content string
         $.each(data, function(){
             tableContent += '<tr>';
@@ -31,3 +35,19 @@ function populateTable(){
         $('#userList table tbody').html(tableContent);
     });
 };
+
+// Show User info
+function showUserInfo(event){
+
+    // Prevent Link from Firing
+    event.preventDefault();
+
+    // Retrieve username from link rel attribute
+    var thisUserName = $(this).attr('rel');
+
+    // Get Index of object based on id value
+    // Use the .map to apply a function to each object in our userListData array.
+    // Returns a new array containing what the function returns
+    var arrayPosition = userListData.map(function(arrayItem) { return arrayItem.username; }).indexOf(thisUserName);
+
+}
