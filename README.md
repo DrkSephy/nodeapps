@@ -1,1 +1,1 @@
-This repository contains various nodejs applications build for tutorial and experimental purposes. 
+This repository contains various nodejs applications build for tutorial and experimental purposes. Currently, a simple introductory application and a RESTful application has been built. 
